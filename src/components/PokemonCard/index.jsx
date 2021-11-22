@@ -1,14 +1,20 @@
+import PropTypes from 'prop-types';
+
 import SPokemonCard from './style';
 
-export default function PokemonCard() {
-  // image, nom, numero
+export default function PokemonCard({ id, name, url }) {
   return (
     <SPokemonCard>
-      <img
-        src="https://www.cdiscount.com/pdt2/4/7/9/1/700x700/roo0034878149479/rw/sticker-geant-repositionnable-pikachu-pokemon-nint.jpg"
-        alt="Pikachu"
-      />
-      <h2>025 - Pikachu</h2>
+      <img src={url} alt={name} />
+      <h2>
+        {id} - {name}
+      </h2>
     </SPokemonCard>
   );
 }
+
+PokemonCard.propTypes = {
+  id: PropTypes.number.isRequired,
+  name: PropTypes.string.isRequired,
+  url: PropTypes.string.isRequired,
+};

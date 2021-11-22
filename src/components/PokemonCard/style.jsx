@@ -17,6 +17,7 @@ const SPokemonCard = styled.article`
     justify-content: center;
     width: 100%;
     aspect-ratio: 5/1;
+    text-transform: capitalize;
   }
 `;
 

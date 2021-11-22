@@ -1,12 +1,14 @@
-import PokemonCard from './components/PokemonCard';
+import { Routes, Route } from 'react-router-dom';
+import PokemonList from './components/PokemonList';
+import PokemonDetails from './components/PokemonDetails';
 
-function App() {
+export default function App() {
   return (
     <>
-      <h1>Gotta catch em all !!</h1>
-      <PokemonCard />
+      <Routes>
+        <Route path="/" element={<PokemonList />} />
+        <Route path="/:id" element={<PokemonDetails />} />
+      </Routes>
     </>
   );
 }
-
-export default App;
