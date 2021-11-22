@@ -10,7 +10,7 @@ export default function PokemonList() {
       .get('https://pokeapi.co/api/v2/pokemon?limit=100')
       .then(({ data }) => {
         const cleanPoks = data.results.map((dirtyPok) => {
-          const id = dirtyPok.url.split('/')[6];
+          const id = parseInt(dirtyPok.url.split('/')[6], 10);
           return {
             id,
             name: dirtyPok.name,
@@ -25,7 +25,7 @@ export default function PokemonList() {
     <>
       <h1>Gotta catch em all !!</h1>
       {pokemons.map((pokemon) => {
-        return <PokemonCard {...pokemon} />;
+        return <PokemonCard key={pokemon.id} {...pokemon} />;
       })}
     </>
   );
